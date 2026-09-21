@@ -110,4 +110,46 @@ Também foram considerados conceitos como:
 
 ## 🛠️ Tecnologias e recursos
 
-* S
+* Salesforce
+* Apex
+* SOQL
+* Flow
+* Lightning Experience
+* Reports
+* Dashboards
+* Custom Objects
+* Validation Rules
+* Git / GitHub
+
+---
+
+## 📈 Evolução do projeto
+
+O projeto está sendo desenvolvido de forma incremental, começando pela configuração da estrutura de dados e regras fundamentais e evoluindo para automações, indicadores e desenvolvimento Apex.
+
+Novos recursos podem ser adicionados conforme a evolução do projeto.
+
+---
+
+## 📚 Objetivo de aprendizado
+
+Este projeto foi desenvolvido como prática para consolidar conhecimentos em **Salesforce Development e Administration**, aplicando conceitos de:
+
+* Modelagem de dados
+* Automação de processos
+* Regras de negócio
+* Desenvolvimento Apex
+* SOQL
+* Relatórios e indicadores
+* Arquitetura de código
+* Boas práticas de desenvolvimento
+
+---
+
+## 👨‍💻 Autor
+
+**Thiago Sobral Teodoro**
+
+Estudante de Ciência da Computação
+
+[LinkedIn](https://www.linkedin.com/in/thiago-sobral-teodoro-35323026b/)
