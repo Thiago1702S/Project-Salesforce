@@ -37,13 +37,24 @@ O processo contempla:
 * Prioridade
 * Motorista
 * Veículo
-* Origem
-* Destino
+* Origem e destino
 * Data prevista de entrega
 * Data de entrega
-* Valor
-* Peso
+* Valor e peso
 * Observações
+* Indicadores de prazo
+
+#### Exemplo de Delivery Order
+
+A tela centraliza as principais informações operacionais da entrega, incluindo cliente, motorista, veículo, rota, valores, prazo e indicador de entrega.
+
+![Delivery Order](Images/delivery-order.png)
+
+### 🗂️ Modelagem de dados
+
+O objeto `Delivery_Order__c` utiliza campos customizados, relacionamentos Lookup, Picklists, campos de data, valores numéricos e fórmulas para representar as informações necessárias ao processo logístico.
+
+![Fields and Relationships](Images/fields-relationships.png)
 
 ### 🚛 Motoristas e veículos
 
@@ -68,17 +79,22 @@ Foram implementadas regras para controlar o processo de entrega, incluindo:
 
 Flows foram utilizados para automatizar processos da operação.
 
-Um dos principais fluxos controla o início da rota e a atualização das informações relacionadas à entrega.
+O Flow `DO_Start_Route` é acionado quando uma `Delivery Order` entra no status **Em rota**, atualizando automaticamente o motorista e o veículo relacionados.
+
+![Flow DO Start Route](Images/flow-start-route.png)
 
 ### 📊 Relatórios e Dashboard
 
-Foram criados relatórios e indicadores para acompanhamento da operação, incluindo informações relacionadas a:
+Foram criados relatórios e indicadores para acompanhamento da operação, incluindo:
 
-* Status dos pedidos
-* Entregas
-* Clientes
-* Valores
-* Desempenho operacional
+* Receita realizada e prevista
+* Pedidos por status
+* Pedidos por cidade
+* Entregas atrasadas
+* Entregas no prazo
+* Principais clientes por valor
+
+![Dashboard SkyLog Logistics](Images/dashboard.png)
 
 ---
 
@@ -94,62 +110,3 @@ Trigger
 Handler
    ↓
 Service
-```
-
-Essa estrutura facilita a manutenção e permite evoluir as regras de negócio sem concentrar toda a lógica dentro do Trigger.
-
-Também foram considerados conceitos como:
-
-* Bulkification
-* Governor Limits
-* SOQL
-* Collections
-* Separação de responsabilidades
-
----
-
-## 🛠️ Tecnologias e recursos
-
-* Salesforce
-* Apex
-* SOQL
-* Flow
-* Lightning Experience
-* Reports
-* Dashboards
-* Custom Objects
-* Validation Rules
-* Git / GitHub
-
----
-
-## 📈 Evolução do projeto
-
-O projeto está sendo desenvolvido de forma incremental, começando pela configuração da estrutura de dados e regras fundamentais e evoluindo para automações, indicadores e desenvolvimento Apex.
-
-Novos recursos podem ser adicionados conforme a evolução do projeto.
-
----
-
-## 📚 Objetivo de aprendizado
-
-Este projeto foi desenvolvido como prática para consolidar conhecimentos em **Salesforce Development e Administration**, aplicando conceitos de:
-
-* Modelagem de dados
-* Automação de processos
-* Regras de negócio
-* Desenvolvimento Apex
-* SOQL
-* Relatórios e indicadores
-* Arquitetura de código
-* Boas práticas de desenvolvimento
-
----
-
-## 👨‍💻 Autor
-
-**Thiago Sobral Teodoro**
-
-Estudante de Ciência da Computação
-
-[LinkedIn](https://www.linkedin.com/in/thiago-sobral-teodoro-35323026b/)
