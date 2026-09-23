@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Valid_Status_Transition</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(Status__c),
+
+    OR(
+
+        /* Criado não pode ir direto para Em rota ou Entregue */
+        AND(
+            TEXT(PRIORVALUE(Status__c)) = &quot;Criado&quot;,
+            OR(
+                ISPICKVAL(Status__c, &quot;Em rota&quot;),
+                ISPICKVAL(Status__c, &quot;Entregue&quot;)
+            )
+        ),
+
+        /* Em preparação não pode ir direto para Entregue */
+        AND(
+            TEXT(PRIORVALUE(Status__c)) = &quot;Em preparação&quot;,
+            ISPICKVAL(Status__c, &quot;Entregue&quot;)
+        ),
+
+        /* Entregue não pode mudar */
+        TEXT(PRIORVALUE(Status__c)) = &quot;Entregue&quot;,
+
+        /* Cancelado não pode mudar */
+        TEXT(PRIORVALUE(Status__c)) = &quot;Cancelado&quot;
+
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>O pedido deve seguir o fluxo operacional: Criado → Em preparação → Em rota → Entregue.</errorMessage>
+</ValidationRule>

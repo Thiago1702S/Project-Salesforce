@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Start_Route_Requires_Driver_And_Vehic</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status__c, &quot;Em rota&quot;),
+    OR(
+        ISBLANK(Driver__c),
+        ISBLANK(Vehicle__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>Para iniciar uma rota é obrigatório informar um motorista e um veículo.</errorMessage>
+</ValidationRule>
